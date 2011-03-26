@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<sessions version="1">
+  <category name="Regular Sessions">
+    <session>
+      <title>Keynote: Great Apps Need Customers</title>
+      <speaker>
+        <name>Brett Keintz</name>
+        <company>Groupon</company>
+        <bio>Brett Keintz is a product manager at Groupon with the official title of “Director of Social”. Prior to Groupon, Brett was CEO and co-founder of Sharethrough, a startup providing viral media distribution for major brand advertisers. Brett received an MBA from Stanford Business School in 2008 and holds a BS in Finance from Boston College. He’s originally from Madison, WI and is a huge fan of the Superbowl champion Packers.</bio>
+ <headshot>http://windycitygo.org/assets/4d892a58dabe9d0f1c00001e/keintz.jpg</headshot>        
+     </speaker>
+      <description>Your team has built a great app.  Now, how do you get customers to install it, come back to it, and pay you money for it?
+
+Brett Keintz has experience with the &quot;good problem to have&quot; of scaling a web app from zero to 20 million users in just 60 days. Whether it's on the web or on mobile the lessons learned are the same. Hear how to quickly get users, figure out what's not working, and optimize your product to the top.  
+</description>
+      <start_time>9:00am</start_time>
+      <end_time>9:45am</end_time>
+      <links>
+            <speaker_website></speaker_website>
+				<speaker_twitter>http://twitter.com/keintzb</speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    <session>
+      <title>iOS Development: How to Keep Going After You Got Started</title>
+      <speaker>
+        <name>Ben Gottlieb</name>
+        <company>Stand Alone, Inc</company>
+        <bio>Ben Gottlieb founded Stand Alone, Inc. in 1995, and has been in the mobile space for 15 years, starting with Newton, then Palm, and now iPhone. Ben wrote the most popular Crosswords app for iPhone, which lets you download and solve fresh puzzles every day. With over a million downloads of the free version, it’s one of the most popular apps on the AppStore. It’s been in the store since Day 1, and the iPad version launched day-and-date with the iPad itself.</bio>
+        <headshot>http://windycitygo.org/assets/4d6bf1cedabe9d79680001a7/bengottlieb.jpeg</headshot>
+        
+      </speaker>
+      <description>You’ve read the introductory books. You’ve experimented with the iOS SDK. You may even have an app or two in Apple’s App store. Clearly, you are no longer a beginner. Now what?
+
+Ben Gottlieb will share observations, tips, suggestions, and hints on how to advance as an iOS developer. Take your iOS skills to the next level.</description>
+      <start_time>10:00am</start_time>
+      <end_time>10:45am</end_time>
+      <links>
+            <speaker_website>http://standalone.com/</speaker_website>
+            <speaker_twitter>http://twitter.com/bengottlieb</speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>Designing for iPad</title>
+      <speaker>
+        <name>Pek Pongpaet</name>
+        <company>SpotOn Inc</company>
+        <bio>Pek Pongpaet is the VP of Product for SpotOn Inc. Pongpaet’s expertise ranges from product design to development. Prior to SpotOn, Pongpaet worked at Accenture Technology Labs in the research department coming up with next generation user interfaces. At Roundarch, a technology and strategy consulting firm, Pongpaet’s work included envisioning and designing the dashboard of the future for the Tesla Model S electric car.</bio>
+        <headshot>http://windycitygo.org/assets/4d6bf0bcdabe9d7e410000b2/pek_side.jpeg</headshot>
+        
+      </speaker>
+      <description> Your goal is to design exceptional user experiences for mobile devices. That’s a lot harder than it sounds! Fortunately, one of the most creative, talented and entrepreneurial designers in Chicago will be joining us to talk about his most recent project, BizTome. Pek Ponpaet will discuss lessons learned while designing this upcoming iPad app which won the 2010 iPadDevCamp Hackathon Best Entertainment App. Whether you’re working on apps for the iPad, the slew of upcoming Android tablets, or any other mobile device, you won’t want to miss this talk!</description>
+      <start_time>11:00am</start_time>
+      <end_time>11:45am</end_time>
+      <links>
+            <speaker_website>http://www.pekpongpaet.com</speaker_website>
+            <speaker_twitter>http://twitter.com/pekpongpaet</speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>Lunch</title>
+      <speaker>
+        <name>Various Speakers</name>
+        <company></company>
+        <bio></bio>
+        <headshot>http://windycitygo.org</headshot>
+        
+      </speaker>
+      <description>You've filled your brain, now fill your stomach! Join us in Ballroom C, or grab your lunch and head outside to enjoy Chicago's beautiful riverfront while you eat.</description>
+      <start_time>11:45am</start_time>
+      <end_time>1:15pm</end_time>
+      <links>
+            <speaker_website></speaker_website>
+            <speaker_twitter></speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>Lightning Talks</title>
+      <speaker>
+        <name>Various Speakers</name>
+        <company></company>
+        <bio></bio>
+        <headshot>http://windycitygo.org</headshot>
+        
+      </speaker>
+      <description>Speaker Lineup TBA.</description>
+      <start_time>1:15pm</start_time>
+      <end_time>2:00pm</end_time>
+      <links>
+            <speaker_website></speaker_website>
+            <speaker_twitter></speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>Mobile is Not Just for Phones</title>
+      <speaker>
+        <name>Uki Dominique Lucas</name>
+        <company></company>
+        <bio>Uki Dominque Lucas is an entrepreneur and Android technology evangelist with over 14 years of experience in Agile management, during which time he’s held positions of director of technology, founder and principal in consulting and technology start-ups. Currently, he is an architect at Sears Mobile Innovation team focusing on a holistic mobile experience from TV and social media, thru mobile software to household hardware. Uki is an Android developer himself and an avid public speaker and a proud mentor to many successful software engineers. For his recent mobile portfolio please visit: http://www.dominiquelucas.com.</bio>
+        <headshot>http://windycitygo.org/assets/4d6c322adabe9d49ae0000e0/uki.jpg</headshot>
+        
+      </speaker>
+      <description>Google’s Android operating system has proven to be a viable platform for mobile developers and manufacturers. And it doesn’t stop there. Uki Dominque Lucas will show you how to leverage your Android mobile development skills to build apps for other Android-based devices including HDTVs, tablets, and various household hardware.</description>
+      <start_time>2:15pm</start_time>
+      <end_time>3:00pm</end_time>
+      <links>
+            <speaker_website>http://www.dominiquelucas.com</speaker_website>
+            <speaker_twitter></speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>.NET on Android? MonoDroid Does.</title>
+      <speaker>
+        <name>Kevin McMahon</name>
+        <company></company>
+        <bio>Kevin McMahon is a software developer based in Chicago who spends his days writing code for a financial services company and his nights writing code for mobile devices. He blogs at http://blog.kevfoo.com and can be found on Twitter at @klmcmahon.</bio>
+        <headshot>http://windycitygo.org/assets/4d6bf33ddabe9d6e0200046a/kevinmcmahon_headshot.jpg</headshot>
+        
+      </speaker>
+      <description>With the recent announcement of the MonoDroid project by Novell, .Net developers now have the ability to target the fastest growing mobile platform on the market using C# and the core .Net APIs. This presentation is intended to introduce developers to the Android platform and show how MonoDroid enables .Net developers to develop for the platform. Topics covered will include: What is MonoDroid, How MonoDroid works with Android, MonoDroid vs. Native Android SDK, and Android App Basics and Sample Apps.</description>
+      <start_time>3:15pm</start_time>
+      <end_time>4:00pm</end_time>
+      <links>
+            <speaker_website>http://blog.kevfoo.com</speaker_website>
+            <speaker_twitter>http://twitter.com/klmcmahon</speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+    
+    <session>
+      <title>Order Up - Customized Content for the Mobile Web</title>
+      <speaker>
+        <name>Jason VanLue</name>
+        <company>Envy Labs</company>
+        <bio>Jason is a designer, husband, and father. He’s Design Lead at Envy Labs, a leading web development firm in Orlando, FL, edits Branding Matters a popular blog on branding and design, and is Chief Brewmeister at Brewwd combining great design with great beer. He’s also a self-proclaimed craft beer snob and a borderline crazy UNC Tarheel fan.</bio>
+        <headshot>http://windycitygo.org/assets/4d6bf3e6dabe9d7e410000d8/jvl.jpg</headshot>
+        
+      </speaker>
+      <description>It's estimated over 50% of internet users access the web through their mobile device. This begs the question, what content are they viewing and how is it being served? In order to create a rich user experience, it's not enough to rely on how your website renders in desktop browsers.
+
+In this session we'll take a closer look at CSS Media Queries and best practices in design and content strategy to discover how to optimize experience on mobile platforms. Through this session, you'll be equipped to start serving up customized content to your users and create experiences unlike you ever have before.</description>
+      <start_time>4:15pm</start_time>
+      <end_time>5:00pm</end_time>
+      <links>
+            <speaker_website>http://www.envylabs.com/</speaker_website>
+            <speaker_twitter>http://twitter.com/jasonvanlue</speaker_twitter>
+            <slides_url></slides_url>
+            <rate_url></rate_url>
+            <video_url></video_url>
+      </links>
+    </session>
+  </category> 
+</sessions>
