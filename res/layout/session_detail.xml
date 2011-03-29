@@ -4,8 +4,7 @@
 	<RelativeLayout
 	    android:layout_width="fill_parent"
     	android:layout_height="?android:attr/listPreferredItemHeight"    
-    	android:orientation="vertical" android:gravity="center_horizontal" 
-	  	android:padding="10px">
+    	android:orientation="vertical" android:gravity="center_horizontal" >
 	  <TextView android:id="@+id/title" 
 	  			android:layout_width="fill_parent" android:layout_height="wrap_content"
 	  			android:padding="10dp" 
@@ -16,6 +15,7 @@
 	   			style="@style/detail_presenter"/>
 	  <TextView android:id="@+id/desc_header"
 	  			android:text="@string/session_header_text"
+	  			android:textSize="16dp"
 	  			android:padding="10dp"
 	  			android:layout_width="fill_parent" android:layout_height="wrap_content"
 	  			android:layout_below="@+id/presenter"
@@ -31,6 +31,7 @@
 		android:padding="10px"
 		style="?android:attr/listSeparatorTextViewStyle" 
 		android:text="@string/bio_header_text"
+		android:textSize="16dp"
 		android:layout_below="@+id/description"
 		 />	
 	  <RelativeLayout
