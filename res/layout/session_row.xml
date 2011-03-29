@@ -10,7 +10,7 @@
 	    android:layout_height="0dip"
 	    android:layout_weight="1"
 	    android:gravity="center_vertical"
-	    android:textSize="16dp"
+	    android:textSize="16sp"
 	/>
 	<TextView
 	    android:layout_width="fill_parent"
@@ -19,6 +19,6 @@
 	    android:id="@+id/bottomtext"
 	    android:singleLine="true"
 		android:ellipsize="marquee"
-		android:textSize="12dp"
+		android:textSize="12sp"
 	/>
 </LinearLayout>

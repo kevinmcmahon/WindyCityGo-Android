@@ -48,8 +48,8 @@ public class SessionList extends ListActivity {
         application.setCurrentSession(this.sessions.get(position));
 
         // startFrom page is not stored in application, for example purposes it's a simple "extra"
-        Intent intent = new Intent(Constants.INTENT_ACTION_VIEW_DETAIL);
+        Intent intent = new Intent(Constants.INTENT_ACTION_VIEW_SESSION_DETAIL);
         intent.putExtra(Constants.STARTFROM_EXTRA, getIntent().getIntExtra(Constants.STARTFROM_EXTRA, 1));
         startActivity(intent);
-    }    
+    }
 }

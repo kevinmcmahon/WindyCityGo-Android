@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WindyCityGo</string>
+    <string name="session_header_text">Session Description</string>
+    <string name="bio_header_text">About the Speaker</string>
 </resources>

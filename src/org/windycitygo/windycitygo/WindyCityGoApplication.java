@@ -1,12 +1,15 @@
 package org.windycitygo.windycitygo;
 
 import org.windycitygo.windycitygo.model.Session;
+import org.windycitygo.windycitygo.model.Sponsor;
+import org.windycitygo.windycitygo.model.SponsorLevel;
 
 import android.app.Application;
 
 public class WindyCityGoApplication extends Application {
-
+	
 	private Session session;
+	private Sponsor sponsor;
 	
 	public WindyCityGoApplication() {
 		super();
@@ -18,5 +21,13 @@ public class WindyCityGoApplication extends Application {
 	
 	public void setCurrentSession(Session currentSession) {
 		this.session = currentSession;
+	}
+
+	public void setCurrentSponsor(Sponsor currentSponsor) {
+		this.sponsor = currentSponsor;	
+	}
+	
+	public Sponsor getCurrentSponsor(){
+		return this.sponsor;
 	}
 }

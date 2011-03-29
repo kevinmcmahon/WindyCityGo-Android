@@ -4,12 +4,13 @@
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="4" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application android:icon="@drawable/wcg_icon"
     			 android:label="@string/app_name" 
     			 android:name="WindyCityGoApplication"
 				 android:allowClearUserData="true" 
-				 android:theme="@android:style/Theme.NoTitleBar">
+				 android:theme="@android:style/Theme.NoTitleBar"><permission android:name="android.permission.INTERNET"></permission>
     			 
         <activity android:name=".MainActivity"
                   android:label="@string/app_name"
@@ -21,15 +22,25 @@
         </activity>    
         <activity android:name=".SessionList">
         	<intent-filter>
-        		<action android:name="org.windycitygo.windycitygo.VIEW_LIST" />
+        		<action android:name="org.windycitygo.windycitygo.VIEW_SESSION_LIST" />
         	</intent-filter>
         </activity>
-        <activity android:name=".MapActivity" />
-        <activity android:name=".SponsorsActivity" />
         <activity android:name=".SessionDetail">
         	<intent-filter>
         		<category android:name="android.intent.category.DEFAULT" />
-        		<action android:name="org.windycitygo.windycitygo.VIEW_DETAIL" />
+        		<action android:name="org.windycitygo.windycitygo.VIEW_SESSION_DETAIL" />
+        	</intent-filter>
+        </activity>
+        <activity android:name=".MapActivity" />
+        <activity android:name=".SponsorsList">
+        	<intent-filter>
+        		<action android:name="org.windycitygo.windycitygo.VIEW_SPONSOR_LIST" />
+        	</intent-filter>
+        </activity>
+        <activity android:name=".SponsorDetail">
+        	<intent-filter>
+        		<category android:name="android.intent.category.DEFAULT" />
+        		<action android:name="org.windycitygo.windycitygo.VIEW_SPONSOR_DETAIL" />
         	</intent-filter>
         </activity>
     </application>

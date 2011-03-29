@@ -31,7 +31,7 @@ public class MainActivity extends TabActivity {
                       .setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent().setClass(this, SponsorsActivity.class);
+        intent = new Intent().setClass(this, SponsorsList.class);
         spec = tabHost.newTabSpec("sponsors").setIndicator("Sponsors",
                           res.getDrawable(R.drawable.ic_tab_seal))
                       .setContent(intent);

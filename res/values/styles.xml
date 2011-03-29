@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="detail_title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="detail_presenter">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="detail_bio">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="detail_description">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="detail_header">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+</resources>
