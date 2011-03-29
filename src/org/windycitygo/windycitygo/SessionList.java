@@ -35,7 +35,7 @@ public class SessionList extends ListActivity {
         } catch (IOException e) {
 
             // handle
-        	android.util.Log.e("SessionsActivity",e.getMessage());
+        	Log.e("SessionsActivity",e.getMessage());
         }
         
         this.setListAdapter(new SessionAdapter(this, R.layout.session_row, sessions));
