@@ -9,6 +9,7 @@ public class Location {
 	public String longitude;
 	public String photo;
 	public String floorPlan;
+	public String name;
 	
 	/*
 	 <location name="WindyCityGo">

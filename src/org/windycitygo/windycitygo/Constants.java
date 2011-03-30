@@ -11,6 +11,9 @@ public class Constants {
     public static final String LOGTAG = "WindyCityGo";
     public static final String PREFS = "RCP";
 
+    // Extras 
     public static final String STARTFROM_EXTRA = "org.windycitygo.windycitygo.StartFrom";
     public static final String FLOOR_PLAN_URL_EXTRA = "org.windycitygo.windycitygo.FloorPlanUrl";
+    public static final String LOCATION_LAT_EXTRA = "org.windycitygo.windycitygo.LocationLat";
+    public static final String LOCATION_LONG_EXTRA = "org.windycitygo.windycitygo.LocationLong";
 }

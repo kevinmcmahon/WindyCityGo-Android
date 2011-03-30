@@ -41,11 +41,20 @@ public class GoogleMap extends MapActivity {
         mapView.setBuiltInZoomControls(true);
         overlayManager = new OverlayManager(this, mapView);
         
-        GeoPoint location = new GeoPoint(41888233,-87630140);
+        GeoPoint location = getLocation();
         
         MapController mc = mapView.getController();
         mc.setCenter(location);
         mc.setZoom(18);    
+	}
+	
+	private GeoPoint getLocation() {
+		Log.v(Constants.LOGTAG, GoogleMap.CLASSTAG + " getLocation from extras");
+		Bundle extras = getIntent().getExtras();
+        int latitude = (int)(Double.parseDouble(extras.getString(Constants.LOCATION_LAT_EXTRA).trim()) * 1000000);
+        int longitude =(int)(Double.parseDouble(extras.getString(Constants.LOCATION_LONG_EXTRA).trim()) * 1000000);
+        
+        return new GeoPoint(latitude,longitude);
 	}
 	
 	@Override
