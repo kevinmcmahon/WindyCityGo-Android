@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="lib" path="/Users/kevin/Projects/workspace/WindyCityGo/external/CWAC-MergeAdapter.jar"/>
 	<classpathentry kind="lib" path="/Users/kevin/Projects/workspace/WindyCityGo/external/CWAC-SackOfViewsAdapter.jar"/>
+	<classpathentry kind="lib" path="/Users/kevin/Projects/workspace/WindyCityGo/external/overlaymanager-1.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

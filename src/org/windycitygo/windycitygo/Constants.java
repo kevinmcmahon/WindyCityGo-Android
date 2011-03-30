@@ -12,4 +12,5 @@ public class Constants {
     public static final String PREFS = "RCP";
 
     public static final String STARTFROM_EXTRA = "org.windycitygo.windycitygo.StartFrom";
+    public static final String FLOOR_PLAN_URL_EXTRA = "org.windycitygo.windycitygo.FloorPlanUrl";
 }
