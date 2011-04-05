@@ -25,7 +25,7 @@ public class MainActivity extends TabActivity {
                       .setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent().setClass(this, WcgMap.class);
+        intent = new Intent().setClass(this, MapTab.class);
         spec = tabHost.newTabSpec("maps").setIndicator("Maps",
                           res.getDrawable(R.drawable.ic_tab_globe))
                       .setContent(intent);

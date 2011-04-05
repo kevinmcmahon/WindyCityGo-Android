@@ -3,13 +3,21 @@ package org.windycitygo.windycitygo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.windycitygo.windycitygo.util.MapHelper;
+
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector.OnGestureListener;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
@@ -25,11 +33,11 @@ import de.android1.overlaymanager.OverlayManager;
 import de.android1.overlaymanager.ZoomEvent;
 
 public class GoogleMap extends MapActivity {
+	
 	private static final String CLASSTAG = GoogleMap.class.getSimpleName();
 	
-		MapView mapView;
-		OverlayManager overlayManager;
-		
+	private MapView mapView;
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,46 +45,81 @@ public class GoogleMap extends MapActivity {
         
         setContentView(R.layout.google_map);
         
+        Bundle extras = getIntent().getExtras();
+        GeoPoint location = MapHelper.getPoint(Double.parseDouble(extras.getString(Constants.LOCATION_LAT_EXTRA).trim()),
+        		Double.parseDouble(extras.getString(Constants.LOCATION_LONG_EXTRA).trim()));
+        
+	    
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
-        overlayManager = new OverlayManager(this, mapView);
-        
-        GeoPoint location = getLocation();
         
         MapController mc = mapView.getController();
         mc.setCenter(location);
-        mc.setZoom(18);    
-	}
-	
-	private GeoPoint getLocation() {
-		Log.v(Constants.LOGTAG, GoogleMap.CLASSTAG + " getLocation from extras");
-		Bundle extras = getIntent().getExtras();
-        int latitude = (int)(Double.parseDouble(extras.getString(Constants.LOCATION_LAT_EXTRA).trim()) * 1000000);
-        int longitude =(int)(Double.parseDouble(extras.getString(Constants.LOCATION_LONG_EXTRA).trim()) * 1000000);
+        mc.setZoom(18);
         
-        return new GeoPoint(latitude,longitude);
-	}
-	
-	@Override
-	public void onStart() {
-		super.onStart();
-		Log.v(Constants.LOGTAG, GoogleMap.CLASSTAG + " onStart");
-		
-	    Drawable defaultmarker = getResources().getDrawable(R.drawable.marker);     
-
-	    ManagedOverlay managedOverlay = overlayManager.createOverlay("location", defaultmarker);
+        Drawable defaultmarker = getResources().getDrawable(R.drawable.marker);     
+	    defaultmarker.setBounds(0,0,defaultmarker.getIntrinsicWidth(),defaultmarker.getIntrinsicHeight());
 	    
-	    ManagedOverlayItem moi = new ManagedOverlayItem(new GeoPoint(41888233,-87630140),"WindyCityGo","The Westin Chicago River North");
-	    
-	    managedOverlay.add(moi);
-	    
-	    //registers the ManagedOverlayer to the MapView
-	    overlayManager.populate();
-	    
+	    String title = extras.getString(Constants.LOCATION_NAME_EXTRA);
+	    String subTitle = extras.getString(Constants.LOCATION_VENUE_SHORT_EXTRA) + "\n"+extras.getString(Constants.LOCATION_ADDRESS_EXTRA);
+        mapView.getOverlays().add(new SiteOverlay(new OverlayItem(location, title,subTitle), defaultmarker, getParent()));
 	}
 	
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
+	}
+	
+	private class SiteOverlay extends ItemizedOverlay<OverlayItem> {
+		
+		private List<OverlayItem> items = new ArrayList<OverlayItem>();
+		private Context mContext;
+		
+		public SiteOverlay(OverlayItem overlayItem, Drawable marker, Context context) {
+			super(marker);
+			mContext=context;
+			
+			boundCenterBottom(marker);
+			
+			items.add(overlayItem);
+
+			populate();
+		}
+
+		@Override
+		protected OverlayItem createItem(int i) {
+			return items.get(i);
+		}
+
+		@Override
+		protected boolean onTap(int i) {
+			  OverlayItem item = items.get(i);
+			  try {
+				  AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+				  dialog.setTitle(item.getTitle());
+				  dialog.setMessage(item.getSnippet());
+				  dialog.setNeutralButton("Details",new OnClickListener() {
+					
+				  	@Override
+					public void onClick(DialogInterface dialog, int which) {
+				  	  // startFrom page is not stored in application, for example purposes it's a simple "extra"
+				        Intent intent = new Intent(Constants.INTENT_ACTION_VIEW_LOCATION_DETAIL);
+				        startActivity(intent);
+					}
+				  });
+				  dialog.setNegativeButton( "Close", null);
+				  dialog.show();
+			  } 
+			  catch (Exception e){
+				  Log.e(Constants.LOGTAG, GoogleMap.CLASSTAG + " Exception showing alert", e);
+			  }
+			  
+			  return true;
+		}
+
+		@Override
+		public int size() {
+			return items.size();
+		}
 	}
 }

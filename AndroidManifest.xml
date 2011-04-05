@@ -25,6 +25,7 @@
         </activity>    
         <activity android:name=".SessionList">
         	<intent-filter>
+        		<category android:name="android.intent.category.DEFAULT" />
         		<action android:name="org.windycitygo.windycitygo.VIEW_SESSION_LIST" />
         	</intent-filter>
         </activity>
@@ -34,11 +35,12 @@
         		<action android:name="org.windycitygo.windycitygo.VIEW_SESSION_DETAIL" />
         	</intent-filter>
         </activity>
-        <activity android:name="GoogleMap" />
-        <activity android:name="Floorplan" />
-        <activity android:name="WcgMap" />
+        <activity android:name=".GoogleMap" />
+        <activity android:name=".Floorplan" />
+        <activity android:name="MapTab" />
         <activity android:name=".SponsorsList">
         	<intent-filter>
+        		<category android:name="android.intent.category.DEFAULT" />
         		<action android:name="org.windycitygo.windycitygo.VIEW_SPONSOR_LIST" />
         	</intent-filter>
         </activity>
@@ -46,6 +48,12 @@
         	<intent-filter>
         		<category android:name="android.intent.category.DEFAULT" />
         		<action android:name="org.windycitygo.windycitygo.VIEW_SPONSOR_DETAIL" />
+        	</intent-filter>
+        </activity>
+        <activity android:name=".LocationDetail">
+        	<intent-filter>
+        		<category android:name="android.intent.category.DEFAULT" />
+        		<action android:name="org.windycitygo.windycitygo.VIEW_LOCATION_DETAIL" />
         	</intent-filter>
         </activity>
     </application>
