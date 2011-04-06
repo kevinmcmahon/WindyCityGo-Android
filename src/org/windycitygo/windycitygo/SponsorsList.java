@@ -47,6 +47,7 @@ public class SponsorsList extends ListActivity {
 	        {
 	        	TextView header = (TextView) vi.inflate(R.layout.header, null);
 	        	header.setText(level.name);
+	        	header.setTextSize(21.0f);
 	        	
 	        	adapter.addView(header);
 	        	adapter.addAdapter(new SponsorAdapter(this,R.layout.sponsor_row,level.sponsors));

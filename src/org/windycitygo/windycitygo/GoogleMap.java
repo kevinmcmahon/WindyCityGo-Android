@@ -61,7 +61,7 @@ public class GoogleMap extends MapActivity {
 	    defaultmarker.setBounds(0,0,defaultmarker.getIntrinsicWidth(),defaultmarker.getIntrinsicHeight());
 	    
 	    String title = extras.getString(Constants.LOCATION_NAME_EXTRA);
-	    String subTitle = extras.getString(Constants.LOCATION_VENUE_SHORT_EXTRA) + "\n"+extras.getString(Constants.LOCATION_ADDRESS_EXTRA);
+	    String subTitle = extras.getString(Constants.LOCATION_VENUE_LONG_EXTRA);
         mapView.getOverlays().add(new SiteOverlay(new OverlayItem(location, title,subTitle), defaultmarker, getParent()));
 	}
 	
@@ -99,10 +99,8 @@ public class GoogleMap extends MapActivity {
 				  dialog.setTitle(item.getTitle());
 				  dialog.setMessage(item.getSnippet());
 				  dialog.setNeutralButton("Details",new OnClickListener() {
-					
 				  	@Override
 					public void onClick(DialogInterface dialog, int which) {
-				  	  // startFrom page is not stored in application, for example purposes it's a simple "extra"
 				        Intent intent = new Intent(Constants.INTENT_ACTION_VIEW_LOCATION_DETAIL);
 				        startActivity(intent);
 					}

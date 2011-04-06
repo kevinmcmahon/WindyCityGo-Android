@@ -1,6 +1,7 @@
 package org.windycitygo.windycitygo;
 
 import org.windycitygo.windycitygo.model.Sponsor;
+import org.windycitygo.windycitygo.util.DownloadImageTask;
 import org.windycitygo.windycitygo.util.ImageHelper;
 import org.windycitygo.windycitygo.util.Network;
 
@@ -46,8 +47,8 @@ public class SponsorDetail extends Activity {
        
         ImageView logo = (ImageView) findViewById(R.id.sponsor_image_detail);
         
-        if(Network.isNetworkAvailable(this)) {
-        	logo.setImageBitmap(Network.downloadBitmap(sponsor.logo));
+        if(Network.isNetworkAvailable(this) && sponsor.logo != null && sponsor.logo != "") {
+        	new DownloadImageTask(logo).execute(sponsor.logo);
         }
 	}
 }

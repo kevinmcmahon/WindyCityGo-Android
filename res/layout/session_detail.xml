@@ -15,7 +15,7 @@
 	   			style="@style/detail_presenter"/>
 	  <TextView android:id="@+id/desc_header"
 	  			android:text="@string/session_header_text"
-	  			android:textSize="16dp"
+	  			android:textSize="18dp"
 	  			android:padding="10dp"
 	  			android:layout_width="fill_parent" android:layout_height="wrap_content"
 	  			android:layout_below="@+id/presenter"
@@ -31,10 +31,11 @@
 		android:padding="10px"
 		style="?android:attr/listSeparatorTextViewStyle" 
 		android:text="@string/bio_header_text"
-		android:textSize="16dp"
+		android:textSize="18dp"
 		android:layout_below="@+id/description"
 		 />	
-	  <RelativeLayout
+	<RelativeLayout
+		  android:id="@+id/bio_layout_block"
 	  	  android:layout_width="wrap_content" android:layout_height="fill_parent"
 		  android:orientation="horizontal" android:gravity="center_horizontal" 
 		  android:layout_below="@+id/bio_header">
@@ -49,6 +50,22 @@
 		  			android:layout_toRightOf="@+id/speaker_icon"
 		  			android:padding="10dp" 
 		  			style="@style/detail_bio" />
-	  </RelativeLayout>	
+	</RelativeLayout>
+	<Button
+		android:id="@+id/session_website_button" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_below="@id/bio_layout_block"
+		android:padding="10dp"
+		android:text="@string/session_website_button_text" 
+		android:textSize="16sp"/>	
+	<Button
+		android:id="@+id/session_twitter_button" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_below="@+id/session_website_button"
+		android:padding="10dp"
+		android:text="@string/session_twitter_button_text" 
+		android:textSize="16sp"/>	
 	</RelativeLayout>
 </ScrollView>

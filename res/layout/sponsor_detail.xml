@@ -6,23 +6,27 @@
 	  android:layout_width="fill_parent" android:layout_height="fill_parent"
 	  android:orientation="vertical" android:gravity="center_horizontal" 
 	  android:padding="10sp">
-	  
-	<ImageView android:id="@+id/sponsor_image_detail"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:background="#FFF" android:padding="10sp"
+	<ImageView
+		android:id="@+id/sponsor_image_detail"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="#FFF" 
+		android:padding="10sp"
 		android:layout_margin="10sp" />
-	
-	<TextView android:id="@+id/sponsor_name_detail" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:layout_below="@id/sponsor_image_detail"
+	<TextView
+		android:id="@+id/sponsor_name_detail" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_below="@id/sponsor_image_detail"
 		android:layout_margin="10sp" 
 		style="?android:attr/listSeparatorTextViewStyle" />
-	
-	<TextView android:id="@+id/sponsor_description_detail"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
+	<TextView 
+		android:id="@+id/sponsor_description_detail"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
 		android:layout_below="@id/sponsor_name_detail"
 		android:layout_margin="10sp" 
 		style="@style/detail_description"  />
-
 	<Button
 		android:id="@+id/sponsor_url_detail" 
 		android:layout_width="fill_parent"
@@ -30,6 +34,6 @@
 		android:layout_below="@id/sponsor_description_detail"
 		android:padding="10dp"
 		android:text="@string/sponsor_url_button" 
-		android:textSize="16sp"/>	
+		android:textSize="21sp"/>	
   </RelativeLayout>
 </ScrollView>

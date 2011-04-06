@@ -1,6 +1,7 @@
 package org.windycitygo.windycitygo;
 
 import android.content.Intent;
+import android.view.Menu;
 
 public class Constants {
 
@@ -12,8 +13,9 @@ public class Constants {
     
     public static final String INTENT_ACTION_VIEW_LOCATION_DETAIL = "org.windycitygo.windycitygo.VIEW_LOCATION_DETAIL";
     
+    public static final String INTENT_ACTION_VIEW_ABOUT = "org.windycitygo.windycitygo.VIEW_ABOUT_DETAIL";
+    
     public static final String LOGTAG = "WindyCityGo";
-    public static final String PREFS = "RCP";
 
     // Extras 
     public static final String STARTFROM_EXTRA = "org.windycitygo.windycitygo.StartFrom";
@@ -25,4 +27,10 @@ public class Constants {
 	public static final String LOCATION_VENUE_SHORT_EXTRA = "org.windycitygo.windycitygo.LocationVenueShort";
 	public static final String LOCATION_ADDRESS_EXTRA = "org.windycitygo.windycitygo.LocationAddress";
 	
+	public static final int MENU_ID_WEBSITE = 0;
+	public static final int MENU_ID_ABOUT = 1;
+	public static final int MENU_ORDER_WEBSITE = Menu.FIRST;
+	public static final int MENU_ORDER_ABOUT = Menu.FIRST+1;
+	
+		
 }

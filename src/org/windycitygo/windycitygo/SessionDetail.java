@@ -6,11 +6,15 @@ import org.windycitygo.windycitygo.util.ImageHelper;
 import org.windycitygo.windycitygo.util.Network;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +27,7 @@ public class SessionDetail extends Activity {
         Log.v(Constants.LOGTAG," " + SessionDetail.CLASSTAG + " onCreate");
         
         WindyCityGoApplication app = (WindyCityGoApplication) getApplication();
-        Session session = app.getCurrentSession();
+        final Session session = app.getCurrentSession();
         
         setContentView(R.layout.session_detail);
         
@@ -49,7 +53,38 @@ public class SessionDetail extends Activity {
         }
         
         if(Network.isNetworkAvailable(this) && session.speaker.headshot != null && session.speaker.headshot != "") {
-        	new DownloadImageTask(imgView).execute(session.speaker.headshot);
+        	new DownloadImageTask(imgView, true).execute(session.speaker.headshot);
         }
+        
+        Button websiteButton = (Button) findViewById(R.id.session_website_button);
+        if(session.links.speakerWebsite != null && session.links.speakerWebsite != "") {
+        	websiteButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(session.links.speakerWebsite));
+					startActivity(i);
+				}
+			});
+        }
+        else {
+        	websiteButton.setVisibility(View.INVISIBLE);
+        }
+        
+    	Button twitterButton = (Button) findViewById(R.id.session_twitter_button);
+    	if(session.links.speakerTwitter != null && session.links.speakerTwitter != "") {
+    		twitterButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(session.links.speakerTwitter));
+					startActivity(i);
+				}
+			});
+        }
+        else {
+        	twitterButton.setVisibility(View.INVISIBLE);
+        }
+
     }
 }

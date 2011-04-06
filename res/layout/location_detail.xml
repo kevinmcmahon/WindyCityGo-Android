@@ -29,6 +29,7 @@
 		android:layout_below="@id/address_location_detail"
 		android:padding="10dp"
 		android:text="@string/directions_button" 
-		android:textSize="21sp"/>
+		android:textSize="21sp"
+		/>
 	</RelativeLayout>
 </ScrollView>

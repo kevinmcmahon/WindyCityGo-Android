@@ -17,7 +17,7 @@
     	
         <activity android:name=".MainActivity"
                   android:label="@string/app_name"
-                  android:theme="@android:style/Theme.NoTitleBar">
+                  android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -37,7 +37,13 @@
         </activity>
         <activity android:name=".GoogleMap" />
         <activity android:name=".Floorplan" />
-        <activity android:name="MapTab" />
+        <activity android:name=".MapTab" />
+        <activity android:name=".About">
+        	<intent-filter>
+        		<category android:name="android.intent.category.DEFAULT" />
+        		<action android:name="org.windycitygo.windycitygo.VIEW_ABOUT_DETAIL" />
+        	</intent-filter>
+        </activity>
         <activity android:name=".SponsorsList">
         	<intent-filter>
         		<category android:name="android.intent.category.DEFAULT" />
