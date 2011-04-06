@@ -51,4 +51,9 @@ public class Network {
           }
 		return bmImg;
      }
+
+	public static Bitmap downloadRoundedBitmap(String fileUrl) {
+		Bitmap bitmap = downloadBitmap(fileUrl);
+		return ImageHelper.getRoundedCornerBitmap(bitmap, 12);
+	}
 }

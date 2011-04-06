@@ -1,6 +1,7 @@
 package org.windycitygo.windycitygo;
 
 import org.windycitygo.windycitygo.model.Session;
+import org.windycitygo.windycitygo.util.DownloadImageTask;
 import org.windycitygo.windycitygo.util.ImageHelper;
 import org.windycitygo.windycitygo.util.Network;
 
@@ -48,10 +49,7 @@ public class SessionDetail extends Activity {
         }
         
         if(Network.isNetworkAvailable(this) && session.speaker.headshot != null && session.speaker.headshot != "") {
-        	Bitmap bitmap = Network.downloadBitmap(session.speaker.headshot); 
-        	if(bitmap != null) {
-        		imgView.setImageBitmap(ImageHelper.getRoundedCornerBitmap(bitmap, 12));
-        	}
+        	new DownloadImageTask(imgView).execute(session.speaker.headshot);
         }
     }
 }

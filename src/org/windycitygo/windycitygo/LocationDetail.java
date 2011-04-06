@@ -2,6 +2,7 @@ package org.windycitygo.windycitygo;
 
 import org.windycitygo.windycitygo.model.Location;
 import org.windycitygo.windycitygo.model.Session;
+import org.windycitygo.windycitygo.util.DownloadImageTask;
 import org.windycitygo.windycitygo.util.ImageHelper;
 import org.windycitygo.windycitygo.util.Network;
 
@@ -9,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 public class LocationDetail extends Activity {
 	
 	private static final String CLASSTAG = LocationDetail.class.getSimpleName();
+	private ImageView photoView;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,15 +46,9 @@ public class LocationDetail extends Activity {
         
         addressView.setText(sb.toString());
         
-        ImageView photoView = (ImageView) findViewById(R.id.picture_location_detail);
-        
-        if(Network.isNetworkAvailable(this) && location.photo != null && location.photo != "") {
-        	Bitmap bitmap = Network.downloadBitmap(location.photo); 
-        	if(bitmap != null) {
-        		photoView.setImageBitmap(ImageHelper.getRoundedCornerBitmap(bitmap, 12));
-        	}
-        }
-        
+        photoView = (ImageView) findViewById(R.id.picture_location_detail);
+        new DownloadImageTask(photoView).execute(location.photo); 
+        	
         Button directionsButton = (Button) findViewById(R.id.directions_button_location_detail);
         directionsButton.setOnClickListener(new OnClickListener() {
 			
