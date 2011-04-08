@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +25,10 @@ public class About extends Activity {
         setContentView(R.layout.about);
         
         TextView devTextView = (TextView) findViewById(R.id.about_dev);
-        devTextView.setText("Kevin McMahon\n@klmcmahon\nandroid@methodsix.com");
+        devTextView.setText(getResources().getString(R.string.about_app_dev_text));
+        
+        TextView wcgTeamTextView = (TextView) findViewById(R.id.about_wcgteam);
+        wcgTeamTextView.setText(getDevTeamText());
         
         ImageView cr = (ImageView) findViewById(R.id.cr_image);
         cr.setImageDrawable(getResources().getDrawable(R.drawable.image_chicagoruby));
@@ -49,5 +53,14 @@ public class About extends Activity {
 				startActivity(wgWeb);
 			}
 		});
+	}
+
+	private String getDevTeamText() {
+		String[] devTeamArray = getResources().getStringArray(R.array.dev_team);
+        StringBuilder sb = new StringBuilder();
+        for(String teamMember : devTeamArray) {
+        	sb.append(teamMember+"\n");
+        }
+        return sb.toString().trim();
 	}
 }
