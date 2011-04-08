@@ -1,12 +1,23 @@
 <?xml version="1.0"?>
-<locations version="1">
+<locations version="1">        
   <location name="WindyCityGo">
     <venue_short>The Westin</venue_short>
     <venue_long>The Westin Chicago River North</venue_long>
-    <address>320 N Dearborn St, Chicago, IL 60654</address>
+    <address>320 N Dearborn St,
+Chicago, IL 60654</address>
     <lat>41.888233</lat>
     <long>-87.63014</long>
-	<photo>http://windycitygo.org/assets/4d862649dabe9d6ff5000031/thewestin.jpeg</photo>
-	<floor_plan>http://windycitygo.org/assets/4d8ba593dabe9d6c2f00000a/floorplan_20110324.png</floor_plan>
+    <photo>http://windycitygo.org/assets/4d862649dabe9d6ff5000031/thewestin.jpeg</photo>
+    <floor_plan>http://windycitygo.org/assets/4d9a11e8dabe9d6a4a000001/floorplan.png</floor_plan>
+  </location>
+  <location name="After Party">
+    <venue_short>Blue Frog 22</venue_short>
+    <venue_long>Blue Frog 22</venue_long>
+    <address>22 East Hubbard Street,
+Chicago, IL 60611</address>
+    <lat>41.890040</lat>
+    <long>-87.627333</long>
+    <photo></photo>
+    <floor_plan></floor_plan>
   </location>
 </locations>

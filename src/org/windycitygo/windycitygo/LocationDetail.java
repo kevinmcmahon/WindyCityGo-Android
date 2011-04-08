@@ -40,7 +40,7 @@ public class LocationDetail extends Activity {
         String[] parts = location.address.split(",");
         StringBuilder sb = new StringBuilder();
         sb.append(parts[0].trim() + "\n");
-        sb.append(parts[1].trim() +"," + parts[2 ]+ "\n");
+        sb.append(parts[1].trim() +"," + parts[2]+ "\n");
         
         TextView addressView = (TextView) findViewById(R.id.address_location_detail);
         
