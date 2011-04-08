@@ -8,6 +8,4 @@
 # Java class files
 *.class
 
-# generated GUI files
-*R.java
 
