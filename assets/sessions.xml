@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
-
 <sessions version="1">
-  
-  
   <category name="Regular Sessions">
-          
     <session>
       <title>Keynote: Great Apps Need Customers</title>
       <speaker>
@@ -12,7 +8,6 @@
         <company>Groupon</company>
         <bio>Brett Keintz is a product manager at Groupon with the official title of “Director of Social”. Prior to Groupon, Brett was CEO and co-founder of Sharethrough, a startup providing viral media distribution for major brand advertisers. Brett received an MBA from Stanford Business School in 2008 and holds a BS in Finance from Boston College. He’s originally from Madison, WI and is a huge fan of the Superbowl champion Packers.</bio>
         <headshot>http://windycitygo.org/assets/4d892a58dabe9d0f1c00001e/keintz.jpg</headshot>
-        
       </speaker>
       <description>Your team has built a great app.  Now, how do you get customers to install it, come back to it, and pay you money for it?
 
@@ -28,15 +23,13 @@ Brett Keintz has experience with the &quot;good problem to have&quot; of scaling
             <video_url></video_url>
       </links>
     </session>
-    
     <session>
       <title>iOS Development: How to Keep Going After You Got Started</title>
       <speaker>
         <name>Ben Gottlieb</name>
         <company>Stand Alone, Inc</company>
         <bio>Ben Gottlieb founded Stand Alone, Inc. in 1995, and has been in the mobile space for 15 years, starting with Newton, then Palm, and now iPhone. Ben wrote the most popular Crosswords app for iPhone, which lets you download and solve fresh puzzles every day. With over a million downloads of the free version, it’s one of the most popular apps on the AppStore. It’s been in the store since Day 1, and the iPad version launched day-and-date with the iPad itself.</bio>
-        <headshot>http://windycitygo.org/assets/4d6bf1cedabe9d79680001a7/bengottlieb.jpeg</headshot>
-        
+        <headshot>http://windycitygo.org/assets/4d6bf1cedabe9d79680001a7/bengottlieb.jpeg</headshot>        
       </speaker>
       <description>You’ve read the introductory books. You’ve experimented with the iOS SDK. You may even have an app or two in Apple’s App store. Clearly, you are no longer a beginner. Now what?
 
@@ -51,7 +44,6 @@ Ben Gottlieb will share observations, tips, suggestions, and hints on how to adv
             <video_url></video_url>
       </links>
     </session>
-    
     <session>
       <title>Designing for iPad</title>
       <speaker>
@@ -130,7 +122,6 @@ by Jeff Wishnie</description>
             <video_url></video_url>
       </links>
     </session>
-    
     <session>
       <title>Mobile is Not Just for Phones</title>
       <speaker>
@@ -172,7 +163,6 @@ by Jeff Wishnie</description>
             <video_url></video_url>
       </links>
     </session>
-    
     <session>
       <title>Order Up - Customized Content for the Mobile Web</title>
       <speaker>
@@ -180,7 +170,6 @@ by Jeff Wishnie</description>
         <company>Envy Labs</company>
         <bio>Jason is a designer, husband, and father. He’s Design Lead at Envy Labs, a leading web development firm in Orlando, FL, edits Branding Matters a popular blog on branding and design, and is Chief Brewmeister at Brewwd combining great design with great beer. He’s also a self-proclaimed craft beer snob and a borderline crazy UNC Tarheel fan.</bio>
         <headshot>http://windycitygo.org/assets/4d6bf3e6dabe9d7e410000d8/jvl.jpg</headshot>
-        
       </speaker>
       <description>It's estimated over 50% of internet users access the web through their mobile device. This begs the question, what content are they viewing and how is it being served? In order to create a rich user experience, it's not enough to rely on how your website renders in desktop browsers.
 
@@ -195,7 +184,5 @@ In this session we'll take a closer look at CSS Media Queries and best practices
             <video_url></video_url>
       </links>
     </session>
-    
   </category>
-  
 </sessions>

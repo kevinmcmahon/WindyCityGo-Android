@@ -13,7 +13,7 @@ import org.windycitygo.windycitygo.model.Speaker;
 import org.windycitygo.windycitygo.model.SponsorLevel;
 import org.windycitygo.windycitygo.model.Sponsor;
 
-public class SponsorHandler extends DefaultHandler {
+public class SponsorHandler extends WcgHandler {
 
 	private StringBuffer buffer = new StringBuffer();
     ArrayList<SponsorLevel> sponsorLevels;
@@ -68,7 +68,7 @@ public class SponsorHandler extends DefaultHandler {
         buffer.append(ch, start, length);
     }
         
-	public ArrayList<SponsorLevel> retrieveSponsorLevels() {
+	public ArrayList<SponsorLevel> retrieve() {
 		return sponsorLevels;
 	}
 }

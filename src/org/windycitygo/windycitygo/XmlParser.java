@@ -22,76 +22,42 @@ public class XmlParser {
     private XMLReader initializeReader() throws ParserConfigurationException, SAXException {
     	
         SAXParserFactory factory = SAXParserFactory.newInstance();
-        // create a parser
         SAXParser parser = factory.newSAXParser();
-        // create the reader (scanner)
-        XMLReader xmlreader = parser.getXMLReader();
-        return xmlreader;
+      
+        return parser.getXMLReader();
     }
     
-    public ArrayList<SessionCategory> parseSessionResponse(InputStream xml) {
+    
+    @SuppressWarnings("unchecked")
+	public ArrayList<SessionCategory> parseSessionResponse(InputStream xml) {
     	Log.v(Constants.LOGTAG, " " + XmlParser.CLASSTAG + " parseSessionResponse" );
-        
-    	try {		
+        return (ArrayList<SessionCategory>) retrieveFromHandler(new SessionHandler(), new InputSource(xml));
+    }
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<SponsorLevel> parseSponsorResponse(InputStream xml) {
+		Log.v(Constants.LOGTAG, " " + XmlParser.CLASSTAG + " parseSponsorResponse" );
+		return (ArrayList<SponsorLevel>) retrieveFromHandler(new SponsorHandler(),new InputSource(xml));
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Location> parseLocationResponse(InputStream xml) {
+		Log.v(Constants.LOGTAG, " " + XmlParser.CLASSTAG + " parseLocationResponse" );	
+		return (ArrayList<Location>) retrieveFromHandler(new LocationHandler(), new InputSource(xml));
+	}
+	
+	private ArrayList<?> retrieveFromHandler(WcgHandler handler, InputSource source) {
+		try {		
 			XMLReader xmlreader = initializeReader();
+			xmlreader.setContentHandler(handler);
+			xmlreader.parse(source);
 			
-			SessionHandler sessionHandler = new SessionHandler();
-			
-			// assign our handler
-			xmlreader.setContentHandler(sessionHandler);
-			// perform the synchronous parse
-			xmlreader.parse(new InputSource(xml));
-			
-			return sessionHandler.retrieveSessionList();            
+			return handler.retrieve();            
         } 
         catch (Exception e) {
         	android.util.Log.e(Constants.LOGTAG, e.getMessage(), e.getCause());
             e.printStackTrace();
             return null;
         }   
-    }
-
-	public ArrayList<SponsorLevel> parseSponsorResponse(InputStream xml) {
-		Log.v(Constants.LOGTAG, " " + XmlParser.CLASSTAG + " parseSponsorResponse" );
-		
-		try {		
-			XMLReader xmlreader = initializeReader();
-			
-			SponsorHandler handler = new SponsorHandler();
-			
-			// assign our handler
-			xmlreader.setContentHandler(handler);
-			// perform the synchronous parse
-			xmlreader.parse(new InputSource(xml));
-			
-			return handler.retrieveSponsorLevels();            
-        } 
-        catch (Exception e) {
-        	android.util.Log.e(Constants.LOGTAG, e.getMessage(), e.getCause());
-            e.printStackTrace();
-            return null;
-        }
-	}
-
-	public ArrayList<Location> parseLocationResponse(InputStream xml) {
-		Log.v(Constants.LOGTAG, " " + XmlParser.CLASSTAG + " parseLocationResponse" );
-		
-		try {		
-			XMLReader xmlreader = initializeReader();
-			
-			LocationHandler handler = new LocationHandler();
-			
-			// assign our handler
-			xmlreader.setContentHandler(handler);
-			// perform the synchronous parse
-			xmlreader.parse(new InputSource(xml));
-			
-			return handler.retrieveLocationList();            
-        } 
-        catch (Exception e) {
-        	android.util.Log.e(Constants.LOGTAG, e.getMessage(), e.getCause());
-            e.printStackTrace();
-            return null;
-        }
 	}
 }

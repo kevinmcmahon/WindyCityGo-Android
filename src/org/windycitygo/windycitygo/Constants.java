@@ -26,11 +26,10 @@ public class Constants {
 	public static final String LOCATION_VENUE_LONG_EXTRA = "org.windycitygo.windycitygo.LocationVenueLong";
 	public static final String LOCATION_VENUE_SHORT_EXTRA = "org.windycitygo.windycitygo.LocationVenueShort";
 	public static final String LOCATION_ADDRESS_EXTRA = "org.windycitygo.windycitygo.LocationAddress";
+	public static final String LOCATION_EXTRA = "org.windycitygo.windycitygo.Location";
 	
 	public static final int MENU_ID_WEBSITE = 0;
 	public static final int MENU_ID_ABOUT = 1;
 	public static final int MENU_ORDER_WEBSITE = Menu.FIRST;
 	public static final int MENU_ORDER_ABOUT = Menu.FIRST+1;
-	
-		
 }

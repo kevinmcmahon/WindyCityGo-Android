@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import org.windycitygo.windycitygo.handlers.SessionHandler;
+import org.windycitygo.windycitygo.handlers.SponsorHandler;
 import org.windycitygo.windycitygo.model.Sponsor;
 import org.windycitygo.windycitygo.model.SponsorLevel;
 

@@ -7,7 +7,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class LocationHandler extends DefaultHandler {
+public class LocationHandler extends WcgHandler {
 			
 			private StringBuffer buffer = new StringBuffer();
 		    
@@ -63,7 +63,7 @@ public class LocationHandler extends DefaultHandler {
 		        buffer.append(ch, start, length);
 		    }
 		        
-			public ArrayList<Location> retrieveLocationList() {
+			public ArrayList<Location> retrieve() {
 				return locationList;
 			}
 }

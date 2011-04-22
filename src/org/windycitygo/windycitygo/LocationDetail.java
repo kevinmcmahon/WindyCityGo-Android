@@ -1,16 +1,11 @@
 package org.windycitygo.windycitygo;
 
 import org.windycitygo.windycitygo.model.Location;
-import org.windycitygo.windycitygo.model.Session;
 import org.windycitygo.windycitygo.util.DownloadImageTask;
-import org.windycitygo.windycitygo.util.ImageHelper;
-import org.windycitygo.windycitygo.util.Network;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,32 +18,30 @@ public class LocationDetail extends Activity {
 	
 	private static final String CLASSTAG = LocationDetail.class.getSimpleName();
 	private ImageView photoView;
+	private Location location;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.v(Constants.LOGTAG, LocationDetail.CLASSTAG + " onCreate");
         
-        WindyCityGoApplication app = (WindyCityGoApplication) getApplication();
-        final Location location = app.getCurrentLocation();
-        
         setContentView(R.layout.location_detail);
+        location = (Location) getIntent().getSerializableExtra(Constants.LOCATION_EXTRA);
         
         TextView venueView = (TextView) findViewById(R.id.venue_location_detail);
         venueView.setText(location.venueLong);
         
-        String[] parts = location.address.split(",");
-        StringBuilder sb = new StringBuilder();
-        sb.append(parts[0].trim() + "\n");
-        sb.append(parts[1].trim() +"," + parts[2]+ "\n");
-        
         TextView addressView = (TextView) findViewById(R.id.address_location_detail);
-        
-        addressView.setText(sb.toString());
+        String addressText = formatAddressText(location.address);
+        addressView.setText(addressText);
         
         photoView = (ImageView) findViewById(R.id.picture_location_detail);
-        new DownloadImageTask(photoView).execute(location.photo); 
-        	
+        
+        if(location.photo != null && !location.photo.trim().equals("")) {
+        	Log.v(Constants.LOGTAG, LocationDetail.CLASSTAG + " photo text: "+ location.photo);
+        	new DownloadImageTask(photoView).execute(location.photo); 
+        }
+        
         Button directionsButton = (Button) findViewById(R.id.directions_button_location_detail);
         directionsButton.setOnClickListener(new OnClickListener() {
 			
@@ -59,5 +52,21 @@ public class LocationDetail extends Activity {
 						startActivity(intent);
 			}
 		});
+	}
+	
+	private String formatAddressText(String address) {
+        String formatted = "";
+        
+        String[] parts = address.split(",");
+        if(parts.length == 3) {
+	        StringBuilder sb = new StringBuilder();
+	        sb.append(parts[0].trim() + "\n");
+	        sb.append(parts[1].trim() +"," + parts[2]+ "\n");
+	        formatted = sb.toString();
+        }
+        else {
+        	formatted = address;
+        }
+        return formatted;
 	}
 }

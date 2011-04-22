@@ -11,7 +11,7 @@ import org.windycitygo.windycitygo.model.SessionCategory;
 import org.windycitygo.windycitygo.model.Speaker;
 import org.windycitygo.windycitygo.model.Links;
 
-public class SessionHandler extends DefaultHandler {
+public class SessionHandler extends WcgHandler {
 	
 	private StringBuffer buffer = new StringBuffer();
     
@@ -106,8 +106,8 @@ public class SessionHandler extends DefaultHandler {
     public void characters(char[] ch, int start, int length) {
         buffer.append(ch, start, length);
     }
-        
-	public ArrayList<SessionCategory> retrieveSessionList() {
+            
+	public ArrayList<SessionCategory> retrieve() {
 		return sessionList;
 	}
 }

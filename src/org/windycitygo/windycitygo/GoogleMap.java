@@ -1,8 +1,11 @@
 package org.windycitygo.windycitygo;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.windycitygo.windycitygo.model.Location;
 import org.windycitygo.windycitygo.util.MapHelper;
 
 import android.app.AlertDialog;
@@ -13,30 +16,23 @@ import android.content.DialogInterface.OnClickListener;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
-import de.android1.overlaymanager.ManagedOverlay;
-import de.android1.overlaymanager.ManagedOverlayItem;
-import de.android1.overlaymanager.OverlayManager;
-import de.android1.overlaymanager.ZoomEvent;
 
 public class GoogleMap extends MapActivity {
 	
 	private static final String CLASSTAG = GoogleMap.class.getSimpleName();
 	
 	private MapView mapView;
+	private ArrayList<Location> locations = new ArrayList<Location>();
+	private ArrayList<GeoPoint> points = new ArrayList<GeoPoint>();
+	private ArrayList<SiteOverlay> sites = new ArrayList<GoogleMap.SiteOverlay>();
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,26 +41,42 @@ public class GoogleMap extends MapActivity {
         
         setContentView(R.layout.google_map);
         
-        Bundle extras = getIntent().getExtras();
-        GeoPoint location = MapHelper.getPoint(Double.parseDouble(extras.getString(Constants.LOCATION_LAT_EXTRA).trim()),
-        		Double.parseDouble(extras.getString(Constants.LOCATION_LONG_EXTRA).trim()));
-        
-	    
-        mapView = (MapView) findViewById(R.id.mapview);
-        mapView.setBuiltInZoomControls(true);
-        
-        MapController mc = mapView.getController();
-        mc.setCenter(location);
-        mc.setZoom(18);
-        
         Drawable defaultmarker = getResources().getDrawable(R.drawable.marker);     
 	    defaultmarker.setBounds(0,0,defaultmarker.getIntrinsicWidth(),defaultmarker.getIntrinsicHeight());
 	    
-	    String title = extras.getString(Constants.LOCATION_NAME_EXTRA);
-	    String subTitle = extras.getString(Constants.LOCATION_VENUE_LONG_EXTRA);
-        mapView.getOverlays().add(new SiteOverlay(new OverlayItem(location, title,subTitle), defaultmarker, getParent()));
+        locations = getLocations();
+        
+        for(Location location : locations) {
+        	 GeoPoint curPoint = MapHelper.getPoint(Double.parseDouble(location.latitude),
+               		Double.parseDouble(location.longitude));
+        	 points.add(curPoint);
+        	 sites.add(new SiteOverlay(location, curPoint, defaultmarker, getParent()));    
+        }
+        
+        mapView = (MapView) findViewById(R.id.mapview);
+        mapView.setBuiltInZoomControls(true);
+        mapView.getOverlays().addAll(sites);
+        
+        MapController mc = mapView.getController();
+        mc.setZoom(17);
+        
+        if(points.size() > 0) {
+        	mc.setCenter(points.get(0));
+        }
 	}
-	
+    
+    private ArrayList<Location> getLocations() {
+        Log.v(Constants.LOGTAG, GoogleMap.CLASSTAG + " getLocation");
+        InputStream stream = null;
+    	try {
+			stream = getAssets().open("locations.xml");
+		} catch (IOException e) {
+            // handle
+        	android.util.Log.e(Constants.LOGTAG, GoogleMap.CLASSTAG + " " + e.getMessage(), e);
+        }
+    	return new XmlParser().parseLocationResponse(stream);
+    }
+    
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
@@ -74,14 +86,16 @@ public class GoogleMap extends MapActivity {
 		
 		private List<OverlayItem> items = new ArrayList<OverlayItem>();
 		private Context mContext;
+		private Location mLocation;
 		
-		public SiteOverlay(OverlayItem overlayItem, Drawable marker, Context context) {
+		public SiteOverlay(Location location, GeoPoint point, Drawable marker, Context context) {
 			super(marker);
 			mContext=context;
+			mLocation=location;
 			
 			boundCenterBottom(marker);
 			
-			items.add(overlayItem);
+			items.add(new OverlayItem(point,mLocation.name,mLocation.venueLong));
 
 			populate();
 		}
@@ -102,6 +116,7 @@ public class GoogleMap extends MapActivity {
 				  	@Override
 					public void onClick(DialogInterface dialog, int which) {
 				        Intent intent = new Intent(Constants.INTENT_ACTION_VIEW_LOCATION_DETAIL);
+				        intent.putExtra(Constants.LOCATION_EXTRA, mLocation);
 				        startActivity(intent);
 					}
 				  });

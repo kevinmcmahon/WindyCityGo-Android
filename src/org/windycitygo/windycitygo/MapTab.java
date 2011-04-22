@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TabHost;
-import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
@@ -36,52 +35,30 @@ public class MapTab extends TabActivity {
     }
 
 	private void buildTabs() {
-		
-		InputStream stream = getLocationInputStream();
-		
-        Location wcgLocation = getLocation(stream);
-        
-        WindyCityGoApplication app = (WindyCityGoApplication) getApplication();
-        app.setCurrentLocation(wcgLocation);
-        
+		ArrayList<Location> locations = getLocations();
+       
 		tabHost = (TabHost) findViewById(android.R.id.tabhost);
     	tabHost.getTabWidget().setDividerDrawable(R.drawable.tab_divider);
 
-    	Intent mapIntent = buildMapIntents(wcgLocation);
+    	Intent mapIntent = new Intent().setClass(this, GoogleMap.class);
     	
     	Intent floorPlanIntent =  new Intent().setClass(this, Floorplan.class);
-    	floorPlanIntent.putExtra(Constants.FLOOR_PLAN_URL_EXTRA, wcgLocation.floorPlan);
+    	floorPlanIntent.putExtra(Constants.FLOOR_PLAN_URL_EXTRA, locations.get(0).floorPlan);
     	
     	setupTab(new TextView(this), "Map", mapIntent);
     	setupTab(new TextView(this), "Floor Plan", floorPlanIntent);
 	}
     
-	private Intent buildMapIntents(Location location) {
-		return new Intent().setClass(this, GoogleMap.class)
-    	.putExtra(Constants.LOCATION_LAT_EXTRA, location.latitude)
-    	.putExtra(Constants.LOCATION_LONG_EXTRA, location.longitude)
-    	.putExtra(Constants.LOCATION_NAME_EXTRA, location.name)
-    	.putExtra(Constants.LOCATION_VENUE_LONG_EXTRA, location.venueLong)
-    	.putExtra(Constants.LOCATION_VENUE_SHORT_EXTRA, location.venueShort)
-    	.putExtra(Constants.LOCATION_ADDRESS_EXTRA, location.address);
-    	
-	}
-    private InputStream getLocationInputStream() {
-    	Log.v(Constants.LOGTAG, MapTab.CLASSTAG + " getLocationInputStream");
-    	InputStream stream = null;
+    private ArrayList<Location> getLocations() {
+        Log.v(Constants.LOGTAG, MapTab.CLASSTAG + " getLocation");
+        InputStream stream = null;
     	try {
 			stream = getAssets().open("locations.xml");
 		} catch (IOException e) {
             // handle
         	android.util.Log.e(Constants.LOGTAG, MapTab.CLASSTAG + " " + e.getMessage(), e);
         }
-		return stream;
-    }
-    
-    private Location getLocation(InputStream stream) {
-        Log.v(Constants.LOGTAG, MapTab.CLASSTAG + " getLocation");
-    	locations = new XmlParser().parseLocationResponse(stream);
-        return locations.get(0);
+    	return new XmlParser().parseLocationResponse(stream);
     }
     
     private void setupTab(final View view, final String tag, Intent intent) {
